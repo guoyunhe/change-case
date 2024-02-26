@@ -1,6 +1,6 @@
 {
-  "name": "change-case",
-  "version": "5.4.3",
+  "name": "change-case-legacy",
+  "version": "5.4.4",
   "description": "Transform a string between `camelCase`, `PascalCase`, `Capital Case`, `snake_case`, `kebab-case`, `CONSTANT_CASE` and others",
   "keywords": [
     "change",
@@ -13,39 +13,59 @@
     "kebab-case",
     "header-case"
   ],
-  "homepage": "https://github.com/blakeembrey/change-case/tree/master/packages/change-case#readme",
+  "homepage": "https://github.com/guoyunhe/change-case/tree/legacy/packages/change-case#readme",
   "bugs": {
-    "url": "https://github.com/blakeembrey/change-case/issues"
+    "url": "https://github.com/guoyunhe/change-case/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/blakeembrey/change-case.git"
+    "url": "git://github.com/guoyunhe/change-case.git"
   },
+  "funding": "https://github.com/sponsors/guoyunhe",
   "license": "MIT",
   "author": {
-    "name": "Blake Embrey",
-    "email": "hello@blakeembrey.com",
-    "url": "http://blakeembrey.me"
+    "name": "Guo Yunhe",
+    "email": "i@guoyunhe.me",
+    "url": "https://guoyunhe.me/"
   },
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.js",
-    "./keys": "./dist/keys.js"
-  },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/"
+    "dist/",
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
-    "bench": "vitest bench",
-    "build": "ts-scripts build",
-    "format": "ts-scripts format",
-    "prepublishOnly": "npm run build",
-    "specs": "ts-scripts specs",
-    "test": "ts-scripts test"
+    "build": "rive build",
+    "build:watch": "rive build --watch",
+    "lint": "rive lint",
+    "lint:fix": "rive lint --fix",
+    "start": "rive start",
+    "test": "rive test",
+    "test:ui": "rive test --ui",
+    "test:watch": "rive test --watch"
+  },
+  "devDependencies": {
+    "@mdx-js/react": "^3.0.0",
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "react-doc-ui": "^2.0.0",
+    "react-dom": "^18.2.0",
+    "rive": "^2.0.0",
+    "typescript": "^5.0.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "rive": {
+    "template": "base",
+    "doc": {
+      "disabled": true
+    }
   }
 }
