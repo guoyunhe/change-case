@@ -1,12 +1,12 @@
 // Regexps involved with splitting words in various case formats.
-const SPLIT_LOWER_UPPER_RE = /([\p{Ll}\d])(\p{Lu})/gu;
-const SPLIT_UPPER_UPPER_RE = /(\p{Lu})([\p{Lu}][\p{Ll}])/gu;
+const SPLIT_LOWER_UPPER_RE = /([a-z0-9])([A-Z])/gu;
+const SPLIT_UPPER_UPPER_RE = /(A-Z)([A-Z][a-z])/gu;
 
 // Used to iterate over the initial split result and separate numbers.
-const SPLIT_SEPARATE_NUMBER_RE = /(\d)\p{Ll}|(\p{L})\d/u;
+const SPLIT_SEPARATE_NUMBER_RE = /(\d)[a-z]|([a-zA-Z])\d/u;
 
 // Regexp involved with stripping non-word characters from the result.
-const DEFAULT_STRIP_REGEXP = /[^\p{L}\d]+/giu;
+const DEFAULT_STRIP_REGEXP = /[^a-zA-Z0-9]+/giu;
 
 // The replacement value for splits.
 const SPLIT_REPLACE_VALUE = "$1\0$2";
